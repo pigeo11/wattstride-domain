@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WattStride | Compete While You Charge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-color: #ffffff;
+            --accent-color: #00ff88; /* Electric Green */
+            --secondary-text: #a0a0a0;
+            --card-bg: #111111;
+            --input-border: #333333;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 2rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-tag {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        h1 span {
+            color: var(--accent-color);
+        }
+
+        p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--secondary-text);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--input-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            margin-top: 6rem;
+            text-align: left;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid var(--input-border);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--secondary-text);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--input-border);
+        }
+
+        .glow {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 1.5rem; }
+            main { padding: 3rem 1.5rem; }
+            .cta-container { width: 100%; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+    <header>
+        <a href="/" class="logo">WattStride</a>
+        <nav>
+            <a href="waitlist.html">Waitlist</a>
+        </nav>
+    </header>
+    <main>
+        <div class="hero-tag">Rev Up Your Charging Time</div>
+        <h1>Charge Up. <span>Climb High.</span></h1>
+        <p>Turn every EV charging session into a competitive arena. Compete in real-time leaderboards while you power your journey.</p>
+        
+        <div class="cta-container">
+            <a href="waitlist.html" class="btn btn-primary">Join the Waitlist</a>
+            <a href="#features" class="btn btn-secondary">How it Works</a>
+        </div>
+
+        <div class="features" id="features">
+            <div class="feature-card">
+                <h3>Real-Time Leaderboards</h3>
+                <p>See how your charging efficiency and stats stack up against EV drivers in your city and worldwide.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Earn Achievements</h3>
+                <p>Unlock badges for your charging milestones, sustainability impact, and competitive performance.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Connect & Compete</h3>
+                <p>Challenge friends or join regional leagues. Turn the "wait" into a win while you wait for a full charge.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2026 WattStride. Powering the competitive spirit of EV drivers everywhere.
+    </footer>
+</body>
+</html>
